@@ -11,7 +11,7 @@ import { RootState } from './store/store';
 
 
 
-export const socket = io("http://localhost:8000")
+export const socket = io("https://web-chat-app-rust.vercel.app/");
 
 function App() {
   const user = useSelector((state: RootState) => state.User.user);
