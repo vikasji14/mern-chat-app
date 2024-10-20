@@ -12,9 +12,8 @@ import { RootState } from './store/store';
 
 
 // export const socket = io("http://localhost:8000")
-export const socket =  io("https://web-chat-app-rust.vercel.app", {
-  path: "/socket.io",
-  transports: ['websocket', 'polling'],
+export const socket =  io('https://web-chat-app-rust.vercel.app', {
+  transports: ['websocket'],
 });
 
 function App() {

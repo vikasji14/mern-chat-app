@@ -11,8 +11,6 @@ import {
 import { socket } from "../../App"
 import { toast } from "react-toastify"
 import { send_message } from "../../services"
-import data from '@emoji-mart/data'
-import Picker from '@emoji-mart/react'
 export default function ChatCard() {
   const dispatch = useDispatch()
   const typingOn = useSelector(state => state.Chat.typing)

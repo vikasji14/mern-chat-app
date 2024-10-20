@@ -15,7 +15,7 @@ const httpServer = createServer(app);
 
 export const io = new Server(httpServer, {
     cors: {
-        origin: "*",
+        origin: "https://web-chat-app-rust.vercel.app",
         methods: "*",
         credentials: true,
         allowedHeaders: ['Content-Type', 'Authorization'],
