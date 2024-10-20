@@ -16,7 +16,7 @@ const httpServer = createServer(app);
 export const io = new Server(httpServer, {
     cors: {
         origin: "*",
-        methods: ["GET", "POST"],
+        methods: "*",
         credentials: true,
         allowedHeaders: ['Content-Type', 'Authorization'],
     }
@@ -67,7 +67,12 @@ io.on("connection", (socket) => {
 });
 
 app.use('/api/', OurRouter)
+app.get('/', (req, res) => {
+    res.send('Hello World');
+    console.log('Hello World');
 
-httpServer.listen(process.env.PORT || 8000, () => {
+});
+
+app.listen(process.env.PORT || 8000, () => {
     console.log(`App is running at http://localhost:${process.env.PORT}`);
 })
