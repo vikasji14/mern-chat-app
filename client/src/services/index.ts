@@ -1,5 +1,5 @@
-const apiUrl = 'https://web-chat-app-rust.vercel.app';
-// const apiUrl = 'http://localhost:8000';
+// const apiUrl = 'https://web-chat-app-rust.vercel.app';
+const apiUrl = 'http://localhost:8000';
 
 
 

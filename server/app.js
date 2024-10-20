@@ -18,9 +18,7 @@ export const io = new Server(httpServer, {
         origin: "*",
         methods: "*",
         credentials: true,
-        allowedHeaders: ['Content-Type', 'Authorization'],
     },
-    transports: ['websocket', 'polling'],
 
 });
 
