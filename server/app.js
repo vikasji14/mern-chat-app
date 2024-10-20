@@ -15,7 +15,7 @@ const httpServer = createServer(app);
 
 export const io = new Server(httpServer, {
     cors: {
-        origin: "*",
+        origin: "https://chatapp-six-wheat.vercel.app/",
         methods: "*",
         credentials: true,
         allowedHeaders: ['Content-Type', 'Authorization'],
