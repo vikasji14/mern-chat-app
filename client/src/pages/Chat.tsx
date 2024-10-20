@@ -2,7 +2,6 @@ import React, {
   useEffect,
   useState,
   useRef,
-  FormEvent,
   useCallback,
 } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +17,6 @@ import { getChatData, get_all_users } from "../services";
 import { BiLogOut, BiSearch } from "react-icons/bi";
 import { toast, ToastContainer } from "react-toastify";
 import { PiChatsFill } from "react-icons/pi";
-import Select from "react-select";
 import { socket } from "../App";
 import { ChatCard, ConversationCard, Loading, DummyChatCard } from "../components";
 
@@ -28,7 +26,7 @@ export default function Chat() {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const [showName, setShowName] = useState(false);
-  const [typingTimeout, setTypingTimeout] = useState<number | null>(null);
+//   const [typingTimeout, setTypingTimeout] = useState<number | null>(null);
   const chatSelected = useSelector(
     (state: RootState) => state.Chat.chatSelected
   );
@@ -111,22 +109,22 @@ export default function Chat() {
 
   const showNameRef = useOutsideClick(handleClickOutside);
 
-  const throttle = <T extends any[]>(
-    func: (...args: T) => void,
-    delay: number
-  ) => {
-    let timeoutId: ReturnType<typeof setTimeout>;
+//   const throttle = <T extends any[]>(
+//     func: (...args: T) => void,
+//     delay: number
+//   ) => {
+//     let timeoutId: ReturnType<typeof setTimeout>;
 
-    return function (this: any, ...args: T) {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
+//     return function (this: any, ...args: T) {
+//       if (timeoutId) {
+//         clearTimeout(timeoutId);
+//       }
 
-      timeoutId = setTimeout(() => {
-        func.apply(this, args);
-      }, delay);
-    };
-  };
+//       timeoutId = setTimeout(() => {
+//         func.apply(this, args);
+//       }, delay);
+//     };
+//   };
 
   const filterItems = (searchTerm: string) => {
     return allUsers?.filter((user) =>
@@ -141,10 +139,10 @@ export default function Chat() {
     []
   );
 
-  const selectUsers = allUsers.map((user) => ({
-    value: user._id,
-    label: user.name,
-  }));
+//   const selectUsers = allUsers.map((user) => ({
+//     value: user._id,
+//     label: user.name,
+//   }));
 
   return (
     <div className="w-full min-h-screen bg-slate-950 flex items-center justify-center">
