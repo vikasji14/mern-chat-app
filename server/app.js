@@ -15,7 +15,7 @@ const httpServer = createServer(app);
 
 export const io = new Server(httpServer, {
     cors: {
-        origin: "https://web-chat-app-rust.vercel.app",
+        origin: "*",
         methods: "*",
         credentials: true,
         allowedHeaders: ['Content-Type', 'Authorization'],
@@ -36,7 +36,6 @@ mongoose.connect(`${process.env.DATABASE_URL}`, { useNewUrlParser: true, useUnif
 
 io.on("connection", (socket) => {
     let userId
-    console.log('A user connected');
     socket.on('userOnline', async (payload) => {
         userId = payload;
         if (!userId) return console.log("No user Id")
@@ -70,6 +69,11 @@ io.on("connection", (socket) => {
 });
 
 app.use('/api/', OurRouter)
+
+app.get('/', (req, res) => {
+    res.send("Server is running")
+})
+
 httpServer.listen(process.env.PORT || 8000, () => {
     console.log(`App is running at http://localhost:${process.env.PORT}`);
 })

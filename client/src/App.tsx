@@ -21,6 +21,9 @@ function App() {
 
   useEffect(() => {
     socket.emit('userOnline', user?._id)
+    return () => {
+      socket.disconnect();
+    };
   }, [user])
 
 
