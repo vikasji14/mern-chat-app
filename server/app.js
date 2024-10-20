@@ -67,12 +67,9 @@ io.on("connection", (socket) => {
 });
 
 app.use('/api/', OurRouter)
-app.get('/', (req, res) => {
-    res.send('Hello World');
-    console.log('Hello World');
-
-});
-
-app.listen(process.env.PORT || 8000, () => {
+httpServer.listen(process.env.PORT || 8000, () => {
     console.log(`App is running at http://localhost:${process.env.PORT}`);
 })
+
+
+export default app;
