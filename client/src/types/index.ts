@@ -47,7 +47,6 @@ export interface groupData {
 
 // A chat state is an object with the following properties
 export interface chatState {
-    groupMessages: Record<string, groupMessges>;
     userOnline: boolean;
     typing: boolean;
     someOneTyping : boolean;
@@ -61,16 +60,9 @@ export interface chatState {
     receiverSelected: receiverSelected | null;
     messages: message[];
     searchUsers: userData[];
-    allGroups: groupData[];
-    groupSelected: groupData | null;
 }
 
 
-// A chat action is an object with the following properties
-export interface groupMessges {
-    groupId: string;
-    messages: message[];
-}
 
 
 // when you select any user to chat with this will take the following values of that user
