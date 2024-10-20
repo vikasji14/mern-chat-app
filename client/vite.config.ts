@@ -8,6 +8,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'https://web-chat-app-rust.vercel.app/',
+        // target: 'http://localhost:8000/',
         changeOrigin: true,
       },
     },

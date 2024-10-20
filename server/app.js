@@ -19,7 +19,9 @@ export const io = new Server(httpServer, {
         methods: "*",
         credentials: true,
         allowedHeaders: ['Content-Type', 'Authorization'],
-    }
+    },
+    transports: ['websocket', 'polling'],
+
 });
 
 app.use(cors());
@@ -34,6 +36,7 @@ mongoose.connect(`${process.env.DATABASE_URL}`, { useNewUrlParser: true, useUnif
 
 io.on("connection", (socket) => {
     let userId
+    console.log('A user connected');
     socket.on('userOnline', async (payload) => {
         userId = payload;
         if (!userId) return console.log("No user Id")
